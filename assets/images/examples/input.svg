@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景 -->
+    <rect x="0" y="0" width="400" height="300" fill="#F5F5F5"/>
+    
+    <!-- 普通输入框 -->
+    <rect x="50" y="30" width="300" height="40" rx="8" fill="#FFFFFF" stroke="#EEEEEE"/>
+    <text x="65" y="55" font-family="Arial" font-size="14" fill="#999999">请输入内容</text>
+    <text x="340" y="55" font-family="Arial" font-size="12" fill="#666666">|</text>
+    
+    <!-- 密码输入框 -->
+    <rect x="50" y="90" width="300" height="40" rx="8" fill="#FFFFFF" stroke="#EEEEEE"/>
+    <text x="65" y="115" font-family="Arial" font-size="14" fill="#999999">请输入密码</text>
+    <circle cx="340" cy="110" r="8" fill="none" stroke="#666666" stroke-width="1.5"/>
+    <line x1="335" y1="110" x2="345" y2="110" stroke="#666666" stroke-width="1.5"/>
+    
+    <!-- 带标签的输入框 -->
+    <text x="50" y="165" font-family="Arial" font-size="14" fill="#333333">用户名</text>
+    <rect x="50" y="175" width="300" height="40" rx="8" fill="#FFFFFF" stroke="#0A59F7"/>
+    <text x="65" y="200" font-family="Arial" font-size="14" fill="#333333">admin</text>
+    
+    <!-- 错误状态输入框 -->
+    <text x="50" y="250" font-family="Arial" font-size="14" fill="#333333">邮箱</text>
+    <rect x="50" y="260" width="300" height="40" rx="8" fill="#FFFFFF" stroke="#F44336"/>
+    <text x="65" y="285" font-family="Arial" font-size="14" fill="#F44336">请输入有效的邮箱地址</text>
+    <path d="M340 270 l-3 6 l6 0 z" fill="#F44336"/>
+</svg> 

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景 -->
+    <rect x="0" y="0" width="400" height="300" fill="#F5F5F5"/>
+    
+    <!-- 旋转手势示例 -->
+    <g transform="translate(80, 80)">
+        <!-- 旋转区域背景 -->
+        <circle cx="0" cy="0" r="50" fill="#FFFFFF" stroke="#EEEEEE"/>
+        <!-- 旋转箭头 -->
+        <path d="M 0,-40 A 40,40 0 1,1 -40,0" fill="none" stroke="#0A59F7" stroke-width="2" stroke-dasharray="5,5"/>
+        <!-- 手指图标 -->
+        <path d="M-10,20 c0,-10 2,-15 10,-15 s10,5 10,15 v15 c0,5 -4,10 -10,10 s-10,-5 -10,-10 z" fill="#666666"/>
+        <!-- 说明文字 -->
+        <text x="0" y="70" font-family="Arial" font-size="12" fill="#333333" text-anchor="middle">旋转手势</text>
+    </g>
+    
+    <!-- 缩放手势示例 -->
+    <g transform="translate(200, 80)">
+        <!-- 缩放区域背景 -->
+        <rect x="-40" y="-40" width="80" height="80" fill="#FFFFFF" stroke="#EEEEEE"/>
+        <!-- 缩放箭头 -->
+        <path d="M-30,-30 l10,0 l0,10 M20,-30 l-10,0 l0,10 M-30,20 l10,0 l0,-10 M20,20 l-10,0 l0,-10" 
+              stroke="#0A59F7" stroke-width="2" fill="none"/>
+        <!-- 手指图标 -->
+        <circle cx="-20" cy="-20" r="5" fill="#666666"/>
+        <circle cx="20" cy="20" r="5" fill="#666666"/>
+        <!-- 说明文字 -->
+        <text x="0" y="70" font-family="Arial" font-size="12" fill="#333333" text-anchor="middle">缩放手势</text>
+    </g>
+    
+    <!-- 滑动手势示例 -->
+    <g transform="translate(320, 80)">
+        <!-- 滑动区域背景 -->
+        <rect x="-40" y="-40" width="80" height="80" fill="#FFFFFF" stroke="#EEEEEE"/>
+        <!-- 滑动轨迹 -->
+        <path d="M-30,0 h60" stroke="#0A59F7" stroke-width="2" stroke-dasharray="5,5"/>
+        <!-- 手指图标 -->
+        <circle cx="0" cy="0" r="5" fill="#666666"/>
+        <path d="M-20,0 l5,-5 l0,10 z" fill="#0A59F7"/>
+        <path d="M20,0 l-5,-5 l0,10 z" fill="#0A59F7"/>
+        <!-- 说明文字 -->
+        <text x="0" y="70" font-family="Arial" font-size="12" fill="#333333" text-anchor="middle">滑动手势</text>
+    </g>
+    
+    <!-- 手势说明 -->
+    <g transform="translate(200, 200)">
+        <rect x="-180" y="0" width="360" height="80" rx="8" fill="#FFFFFF" stroke="#EEEEEE"/>
+        <text x="0" y="30" font-family="Arial" font-size="14" fill="#333333" text-anchor="middle">手势操作说明</text>
+        <text x="-160" y="55" font-family="Arial" font-size="12" fill="#666666">• 旋转：单指旋转调整角度</text>
+        <text x="0" y="55" font-family="Arial" font-size="12" fill="#666666">• 缩放：双指捏合改变大小</text>
+        <text x="160" y="55" font-family="Arial" font-size="12" fill="#666666">• 滑动：单指滑动切换</text>
+    </g>
+</svg> 

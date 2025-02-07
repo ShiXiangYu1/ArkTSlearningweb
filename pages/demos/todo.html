@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>待办事项演示</title>
+    <style>
+        :root {
+            --primary-color: #0A59F7;
+            --background-color: #f0f0f0;
+            --text-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            padding: 20px;
+        }
+
+        .todo-app {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .todo-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .todo-header h1 {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .todo-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .todo-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .todo-input button {
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .todo-list {
+            list-style: none;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f8f8;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            animation: slideIn 0.3s ease;
+        }
+
+        .todo-item.completed {
+            opacity: 0.7;
+        }
+
+        .todo-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .todo-item span {
+            flex: 1;
+        }
+
+        .todo-item.completed span {
+            text-decoration: line-through;
+            color: #666;
+        }
+
+        .todo-item button {
+            padding: 5px 10px;
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .todo-stats {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="todo-app">
+        <div class="todo-header">
+            <h1>待办事项</h1>
+        </div>
+        
+        <div class="todo-input">
+            <input type="text" id="newTask" placeholder="添加新任务...">
+            <button onclick="addTask()">添加</button>
+        </div>
+        
+        <ul class="todo-list" id="todoList"></ul>
+        
+        <div class="todo-stats">
+            <span>总计: <span id="totalCount">0</span></span>
+            <span>已完成: <span id="completedCount">0</span></span>
+            <span>待处理: <span id="pendingCount">0</span></span>
+        </div>
+    </div>
+
+    <script>
+        let todos = [];
+
+        function addTask() {
+            const input = document.getElementById('newTask');
+            const text = input.value.trim();
+            
+            if (text) {
+                const todo = {
+                    id: Date.now(),
+                    text: text,
+                    completed: false
+                };
+                
+                todos.push(todo);
+                input.value = '';
+                renderTodos();
+            }
+        }
+
+        function toggleTask(id) {
+            const todo = todos.find(t => t.id === id);
+            if (todo) {
+                todo.completed = !todo.completed;
+                renderTodos();
+            }
+        }
+
+        function deleteTask(id) {
+            todos = todos.filter(t => t.id !== id);
+            renderTodos();
+        }
+
+        function renderTodos() {
+            const list = document.getElementById('todoList');
+            list.innerHTML = '';
+            
+            todos.forEach(todo => {
+                const li = document.createElement('li');
+                li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
+                
+                li.innerHTML = `
+                    <input type="checkbox" ${todo.completed ? 'checked' : ''} 
+                        onchange="toggleTask(${todo.id})">
+                    <span>${todo.text}</span>
+                    <button onclick="deleteTask(${todo.id})">删除</button>
+                `;
+                
+                list.appendChild(li);
+            });
+            
+            updateStats();
+        }
+
+        function updateStats() {
+            const total = todos.length;
+            const completed = todos.filter(t => t.completed).length;
+            const pending = total - completed;
+            
+            document.getElementById('totalCount').textContent = total;
+            document.getElementById('completedCount').textContent = completed;
+            document.getElementById('pendingCount').textContent = pending;
+        }
+
+        // 添加回车键支持
+        document.getElementById('newTask').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addTask();
+            }
+        });
+
+        // 添加一些示例任务
+        todos = [
+            { id: 1, text: '完成用户注册功能', completed: true },
+            { id: 2, text: '实现数据持久化', completed: false },
+            { id: 3, text: '添加单元测试', completed: false }
+        ];
+        renderTodos();
+    </script>
+</body>
+</html> 

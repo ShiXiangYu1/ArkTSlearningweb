@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景 -->
+    <rect x="0" y="0" width="400" height="400" fill="#F5F5F5"/>
+    
+    <!-- 应用容器 -->
+    <rect x="50" y="20" width="300" height="360" rx="12" fill="#FFFFFF" stroke="#EEEEEE"/>
+    
+    <!-- 标题栏 -->
+    <g transform="translate(70, 40)">
+        <text font-family="Arial" font-size="20" font-weight="bold" fill="#333333">待办事项</text>
+        <text x="200" font-family="Arial" font-size="14" fill="#666666">共 4 项</text>
+    </g>
+    
+    <!-- 添加任务输入框 -->
+    <g transform="translate(70, 80)">
+        <rect width="260" height="40" rx="8" fill="#FFFFFF" stroke="#EEEEEE"/>
+        <text x="15" y="25" font-family="Arial" font-size="14" fill="#999999">添加新任务...</text>
+        <rect x="220" y="8" width="24" height="24" rx="4" fill="#0A59F7"/>
+        <text x="232" y="25" font-family="Arial" font-size="18" fill="#FFFFFF" text-anchor="middle">+</text>
+    </g>
+    
+    <!-- 任务列表 -->
+    <!-- 任务1 -->
+    <g transform="translate(70, 140)">
+        <rect width="260" height="50" rx="8" fill="#FFFFFF" stroke="#EEEEEE"/>
+        <circle cx="20" cy="25" r="10" fill="#FFFFFF" stroke="#4CAF50" stroke-width="2"/>
+        <path d="M15,25 l5,5 l8,-8" stroke="#4CAF50" stroke-width="2" fill="none"/>
+        <text x="45" y="30" font-family="Arial" font-size="14" fill="#333333" text-decoration="line-through">完成用户注册功能</text>
+        <text x="240" y="30" font-family="Arial" font-size="12" fill="#999999">已完成</text>
+    </g>
+    
+    <!-- 任务2 -->
+    <g transform="translate(70, 200)">
+        <rect width="260" height="50" rx="8" fill="#FFFFFF" stroke="#EEEEEE"/>
+        <circle cx="20" cy="25" r="10" fill="#FFFFFF" stroke="#EEEEEE" stroke-width="2"/>
+        <text x="45" y="30" font-family="Arial" font-size="14" fill="#333333">实现数据持久化</text>
+        <text x="240" y="30" font-family="Arial" font-size="12" fill="#FF9800">进行中</text>
+    </g>
+    
+    <!-- 任务3 -->
+    <g transform="translate(70, 260)">
+        <rect width="260" height="50" rx="8" fill="#FFFFFF" stroke="#EEEEEE"/>
+        <circle cx="20" cy="25" r="10" fill="#FFFFFF" stroke="#EEEEEE" stroke-width="2"/>
+        <text x="45" y="30" font-family="Arial" font-size="14" fill="#333333">添加单元测试</text>
+        <text x="240" y="30" font-family="Arial" font-size="12" fill="#F44336">待处理</text>
+    </g>
+    
+    <!-- 任务4 -->
+    <g transform="translate(70, 320)">
+        <rect width="260" height="50" rx="8" fill="#FFFFFF" stroke="#EEEEEE"/>
+        <circle cx="20" cy="25" r="10" fill="#FFFFFF" stroke="#EEEEEE" stroke-width="2"/>
+        <text x="45" y="30" font-family="Arial" font-size="14" fill="#333333">优化页面性能</text>
+        <text x="240" y="30" font-family="Arial" font-size="12" fill="#F44336">待处理</text>
+    </g>
+    
+    <!-- 底部统计 -->
+    <g transform="translate(70, 380)">
+        <text font-family="Arial" font-size="12" fill="#666666">已完成: 1</text>
+        <text x="100" font-family="Arial" font-size="12" fill="#666666">进行中: 1</text>
+        <text x="200" font-family="Arial" font-size="12" fill="#666666">待处理: 2</text>
+    </g>
+    
+    <!-- 动画效果示意 -->
+    <g transform="translate(340, 200)" opacity="0.3">
+        <path d="M0,0 C20,-10 20,10 0,0" stroke="#0A59F7" stroke-width="2" fill="none">
+            <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0 0 0"
+                to="360 0 0"
+                dur="2s"
+                repeatCount="indefinite"/>
+        </path>
+    </g>
+</svg> 

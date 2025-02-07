@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景 -->
+    <rect x="0" y="0" width="400" height="300" fill="#F5F5F5"/>
+    
+    <!-- 收起状态 -->
+    <g transform="translate(50, 50)">
+        <!-- 容器背景 -->
+        <rect x="0" y="0" width="120" height="80" rx="8" fill="#FFFFFF" stroke="#EEEEEE"/>
+        <!-- 按钮 -->
+        <rect x="20" y="20" width="80" height="40" rx="4" fill="#0A59F7"/>
+        <text x="60" y="45" font-family="Arial" font-size="14" fill="#FFFFFF" text-anchor="middle">点击展开</text>
+        <!-- 状态标签 -->
+        <text x="60" y="-10" font-family="Arial" font-size="12" fill="#666666" text-anchor="middle">收起状态</text>
+        <!-- 动画指示 -->
+        <path d="M60,90 l0,20" stroke="#666666" stroke-width="2" stroke-dasharray="4,4"/>
+    </g>
+    
+    <!-- 展开状态 -->
+    <g transform="translate(230, 50)">
+        <!-- 容器背景 -->
+        <rect x="0" y="0" width="120" height="200" rx="8" fill="#FFFFFF" stroke="#EEEEEE"/>
+        <!-- 按钮 -->
+        <rect x="20" y="20" width="80" height="40" rx="4" fill="#0A59F7"/>
+        <text x="60" y="45" font-family="Arial" font-size="14" fill="#FFFFFF" text-anchor="middle">点击收起</text>
+        <!-- 展开内容 -->
+        <rect x="20" y="80" width="80" height="100" rx="4" fill="#2196F3" opacity="0.8"/>
+        <!-- 状态标签 -->
+        <text x="60" y="-10" font-family="Arial" font-size="12" fill="#666666" text-anchor="middle">展开状态</text>
+    </g>
+    
+    <!-- 动画过程指示 -->
+    <g transform="translate(200, 150)">
+        <path d="M-20,0 h40" stroke="#0A59F7" stroke-width="2" marker-end="url(#arrow)"/>
+    </g>
+    <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+                markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#0A59F7"/>
+        </marker>
+    </defs>
+    
+    <!-- 动画说明 -->
+    <g transform="translate(200, 250)">
+        <rect x="-150" y="0" width="300" height="30" rx="4" fill="#FFFFFF" stroke="#EEEEEE"/>
+        <text x="0" y="20" font-family="Arial" font-size="12" fill="#666666" text-anchor="middle">
+            过渡动画：500ms, ease-in-out
+        </text>
+    </g>
+    
+    <!-- 动画轨迹 -->
+    <g transform="translate(200, 150)" opacity="0.3">
+        <path d="M-130,-20 C-80,60 80,60 130,-20" stroke="#0A59F7" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+        <circle cx="-130" cy="-20" r="3" fill="#0A59F7"/>
+        <circle cx="130" cy="-20" r="3" fill="#0A59F7"/>
+    </g>
+</svg> 
