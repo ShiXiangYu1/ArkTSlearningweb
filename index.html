@@ -114,6 +114,72 @@
         </div>
     </footer>
 
+    <!-- 悬浮二维码 -->
+    <div class="floating-qrcode">
+        <button class="qrcode-toggle">
+            <i class="fa fa-qrcode"></i>
+        </button>
+        <div class="qrcode-panel">
+            <div class="qrcode-header">
+                <span>扫码访问</span>
+                <button class="close-qrcode">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div id="qrcode"></div>
+            <p>用手机扫描二维码访问</p>
+        </div>
+    </div>
+
+    <!-- 添加QRCode.js库 -->
+    <script src="http://cdn.bytedance.com/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        // 等待DOM加载完成
+        document.addEventListener('DOMContentLoaded', () => {
+            // 获取元素
+            const qrcodeToggle = document.querySelector('.qrcode-toggle');
+            const qrcodePanel = document.querySelector('.qrcode-panel');
+            const closeQrcode = document.querySelector('.close-qrcode');
+            
+            // 初始化二维码
+            try {
+                new QRCode(document.getElementById("qrcode"), {
+                    text: window.location.href,
+                    width: 128,
+                    height: 128,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                console.log('二维码生成成功');
+            } catch (error) {
+                console.error('二维码生成失败:', error);
+            }
+
+            // 点击切换按钮显示/隐藏面板
+            qrcodeToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                qrcodePanel.classList.toggle('show');
+                console.log('二维码按钮被点击');
+            });
+
+            // 点击关闭按钮隐藏面板
+            closeQrcode.addEventListener('click', (e) => {
+                e.stopPropagation();
+                qrcodePanel.classList.remove('show');
+            });
+
+            // 点击面板内部不关闭
+            qrcodePanel.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            // 点击页面其他地方关闭面板
+            document.addEventListener('click', () => {
+                qrcodePanel.classList.remove('show');
+            });
+        });
+    </script>
     <script src="assets/js/main.js"></script>
 </body>
 </html> 

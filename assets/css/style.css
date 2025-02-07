@@ -1089,4 +1089,135 @@ body.loaded {
 
 .practice-menu a:nth-child(2) { animation-delay: 0.1s; }
 .practice-menu a:nth-child(3) { animation-delay: 0.2s; }
-.practice-menu a:nth-child(4) { animation-delay: 0.3s; } 
+.practice-menu a:nth-child(4) { animation-delay: 0.3s; }
+
+/* 悬浮二维码样式 */
+.floating-qrcode {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+}
+
+.qrcode-toggle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.qrcode-toggle:hover {
+    transform: scale(1.1);
+}
+
+.qrcode-panel {
+    position: absolute;
+    right: 0;
+    bottom: 60px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.qrcode-panel.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.qrcode-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.qrcode-header span {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.close-qrcode {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.close-qrcode:hover {
+    color: var(--primary-color);
+}
+
+.qrcode-panel #qrcode {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.qrcode-panel p {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+/* 深色主题适配 */
+[data-theme="dark"] .qrcode-panel {
+    background-color: #2d2d2d;
+}
+
+[data-theme="dark"] .qrcode-header span {
+    color: #fff;
+}
+
+[data-theme="dark"] .close-qrcode {
+    color: #999;
+}
+
+[data-theme="dark"] .qrcode-panel p {
+    color: #999;
+}
+
+[data-theme="dark"] .qrcode-panel #qrcode {
+    background-color: white;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .floating-qrcode {
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .qrcode-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .qrcode-panel {
+        width: 180px;
+        right: 0;
+    }
+} 
