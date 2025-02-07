@@ -132,7 +132,7 @@
     </div>
 
     <!-- 添加QRCode.js库 -->
-    <script src="http://cdn.bytedance.com/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <script>
         // 等待DOM加载完成
         document.addEventListener('DOMContentLoaded', () => {
@@ -140,20 +140,30 @@
             const qrcodeToggle = document.querySelector('.qrcode-toggle');
             const qrcodePanel = document.querySelector('.qrcode-panel');
             const closeQrcode = document.querySelector('.close-qrcode');
+            const qrcodeElement = document.getElementById("qrcode");
+            
+            // 清除可能存在的旧二维码
+            qrcodeElement.innerHTML = '';
+            
+            // 获取完整的网站URL
+            const websiteUrl = window.location.origin;
+            console.log('当前网站URL:', websiteUrl);
             
             // 初始化二维码
             try {
-                new QRCode(document.getElementById("qrcode"), {
-                    text: window.location.href,
+                const qrcode = new QRCode(qrcodeElement, {
+                    text: websiteUrl,  // 使用动态获取的网站URL
                     width: 128,
                     height: 128,
                     colorDark: "#000000",
                     colorLight: "#ffffff",
                     correctLevel: QRCode.CorrectLevel.H
                 });
-                console.log('二维码生成成功');
+                console.log('二维码生成成功，URL:', websiteUrl);
             } catch (error) {
                 console.error('二维码生成失败:', error);
+                // 添加错误提示
+                qrcodeElement.innerHTML = '<p style="color: red;">二维码生成失败，请刷新页面重试</p>';
             }
 
             // 点击切换按钮显示/隐藏面板
